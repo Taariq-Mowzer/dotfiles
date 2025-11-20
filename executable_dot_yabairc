@@ -1,0 +1,36 @@
+# Run yabai
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+# Debugging on
+yabai -m config debug_output on
+
+# binary split layout
+yabai -m config layout bsp
+
+yabai -m config window_placement second_child
+
+# padding
+yabai -m config top_padding 6
+yabai -m config bottom_padding 6
+yabai -m config left_padding 6
+yabai -m config right_padding 6
+yabai -m config window_gap 6
+
+# Disable specific programs
+# yabai -m rule --add app="^System Settings$" manage=off
+
+# focus window after active space changes
+yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[-1].id)"
+
+# focus window after active display changes
+yabai -m signal --add event=display_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[-1].id)"
+
+# Mouse autofocuses
+yabai -m config focus_follows_mouse autoraise
+
+# Mouse follows focus
+yabai -m config mouse_follows_focus on
+
+# Order displays horizontally
+yabai -m config display_arrangement_order horizontal
