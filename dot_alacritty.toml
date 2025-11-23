@@ -1,0 +1,31 @@
+# [env]
+# TERM= "xterm-256color"
+
+[font]
+normal.family = "FiraMono Nerd Font Mono"
+size = 14
+
+[window]
+padding.x = 2
+padding.y = 2
+opacity = 0.95
+
+[general]
+# import = [
+#     "~/.config/alacritty/themes/themes/tokyo_night.toml"
+# ]
+
+[keyboard]
+bindings = [
+  { key = "Key0", mods = "Control", chars = "\u00010" },
+  { key = "Key1", mods = "Control", chars = "\u00011" },
+  { key = "Key2", mods = "Control", chars = "\u00012" },
+  { key = "Key3", mods = "Control", chars = "\u00013" },
+  { key = "Key4", mods = "Control", chars = "\u00014" },
+  { key = "Key5", mods = "Control", chars = "\u00015" },
+  { key = "Key6", mods = "Control", chars = "\u00016" },
+  { key = "Key7", mods = "Control", chars = "\u00017" },
+  { key = "Key8", mods = "Control", chars = "\u00018" },
+  { key = "Key9", mods = "Control", chars = "\u00019" },
+  { key = "V", mods = "Control", action = "Paste" },
+]
