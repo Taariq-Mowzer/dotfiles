@@ -1,0 +1,3 @@
+.config/nvim/plugin/packer_compiled.lua
+.config/nvim/spell/*
+.config/nvin/lua/.DS_Store
