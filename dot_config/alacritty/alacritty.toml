@@ -11,9 +11,9 @@ padding.y = 2
 opacity = 0.95
 
 [general]
-# import = [
-#     "~/.config/alacritty/themes/themes/tokyo_night.toml"
-# ]
+import = [
+    "~/.config/alacritty/themes/themes/tokyo_night.toml"
+]
 
 [keyboard]
 bindings = [
