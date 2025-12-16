@@ -14,4 +14,5 @@ vim.pack.add({
 	'https://github.com/micangl/cmp-vimtex', -- reguires vimtex
  	'https://github.com/mfussenegger/nvim-dap',
  	'https://github.com/kshenoy/vim-signature',
+	'https://github.com/epwalsh/obsidian.nvim', -- requires nvim-cmp, treesitter, and telescope
 })
