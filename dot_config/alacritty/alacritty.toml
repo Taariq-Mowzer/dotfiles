@@ -3,12 +3,12 @@
 
 [font]
 normal.family = "FiraMono Nerd Font Mono"
-size = 14
+size = 18
 
 [window]
 padding.x = 2
 padding.y = 2
-opacity = 0.95
+opacity = 1
 
 [general]
 import = [
