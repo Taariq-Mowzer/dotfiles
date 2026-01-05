@@ -55,5 +55,5 @@ vim.api.nvim_create_user_command('LS',  function()
 	vim.notify(output_reversed)
 end, {})
 	
-vim.keymap.set('n', '<leader>bb', buffer_searcher, {})
+vim.keymap.set('n', '<leader>ls', buffer_searcher, {})
 vim.keymap.set('n', '<leader>bl', ':LS<CR>:b ', { noremap = true })
