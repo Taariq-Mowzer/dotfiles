@@ -11,6 +11,14 @@ export VISUAL="nvim"
 alias vim="nvim"
 # Requires vivid. brew install vivid
 export LS_COLORS="$(vivid generate tokyonight-night)"
+# make ls use colors
+export CLICOLOR=1 
+# Use lsd instead to properlty render colors
+alias ls="lsd --icon never"
+alias lg="lazygit"
+
+export LC_ALL="en_ZA.UTF-8"
+
 
 set -o vi
 # Ctrl-P for previous command
