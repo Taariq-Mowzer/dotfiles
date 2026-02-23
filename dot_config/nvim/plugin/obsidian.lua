@@ -9,6 +9,9 @@ require("obsidian").setup({
 		nvim_cmp = true,
 		min_chars = 2,
 	},
+	ui = {
+		enable = false
+	},
 	-- Optional, configure key mappings. These are the defaults. If you don't want to set any keymappings this
 	-- way then set 'mappings = {}'.
 	mappings = {
@@ -74,5 +77,4 @@ require("obsidian").setup({
 	  return path:with_suffix(".md")
 	end,
 })
-vim.opt.conceallevel = 2
 vim.keymap.set("n", "<leader>fo",  "<cmd>ObsidianQuickSwitch<cr>", { desc = "Obsidian: quick switch note" })
