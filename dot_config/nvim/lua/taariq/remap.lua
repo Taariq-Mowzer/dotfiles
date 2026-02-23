@@ -35,14 +35,19 @@ end, { nargs = "+" })
 
 vim.api.nvim_create_user_command('RP', function()
 	local file_ext = vim.fn.expand('%:e')
+	local first_line = vim.fn.getline(1)
+	local shebang = first_line:match("^#!%s*(.+)$")
 
 	local run_cmds = {
 		py = "term python %",
-		zig = "term zig run %"
 	}
 
-  	run_cmd = run_cmds[file_ext]
+  	local run_cmd = run_cmds[file_ext]
 	
+	if shebang then
+		run_cmd = "term " .. shebang .. " %"
+	end
+
   	if run_cmd then
 		vim.cmd("vs")
 		vim.cmd(run_cmd)
@@ -90,4 +95,3 @@ vim.api.nvim_create_autocmd({"BufWinLeave", "BufWinEnter"}, {
         end
     end,
 })
-
