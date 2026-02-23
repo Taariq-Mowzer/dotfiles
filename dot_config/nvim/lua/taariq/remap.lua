@@ -26,6 +26,9 @@ vim.opt.smartindent = true
 -- Use git grep instead of normal grep
 vim.opt.grepprg = "git grep -n"
 
+-- Don't change the working directory
+vim.opt.autochdir = false
+
 vim.api.nvim_create_user_command("Grep", function(opts)
   vim.cmd("Ggrep -q " .. opts.args)
 end, { nargs = "+" })
