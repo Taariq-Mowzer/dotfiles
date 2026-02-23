@@ -7,7 +7,7 @@ vim.pack.add({
 	'https://github.com/williamboman/mason.nvim',
 	'https://github.com/williamboman/mason-lspconfig.nvim',
 	'https://github.com/nvim-lua/plenary.nvim',
-    'https://github.com/nvim-telescope/telescope.nvim', -- requires plenary
+	{src='https://github.com/nvim-telescope/telescope.nvim', version='master'}, -- requires plenary
 	{src = 'https://github.com/ThePrimeagen/harpoon', version='harpoon2'}, -- resuires plenary
 	'https://github.com/windwp/nvim-autopairs',
 	'https://github.com/L3MON4D3/LuaSnip',
