@@ -115,4 +115,4 @@ local function local_marks()
     :find()
 end
 
-vim.keymap.set('n', '<leader>mm', local_marks, { desc = "Telescope: local marks" })
+vim.keymap.set('n', '<leader>lm', local_marks, { desc = "Telescope: local marks" })

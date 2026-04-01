@@ -95,3 +95,6 @@ vim.api.nvim_create_autocmd({"BufWinLeave", "BufWinEnter"}, {
         end
     end,
 })
+
+-- Don't save with a newline
+vim.opt.fixendofline = false
