@@ -99,3 +99,5 @@ vim.api.nvim_create_autocmd({"BufWinLeave", "BufWinEnter"}, {
 -- Don't save with a newline
 vim.opt.fixeol = false
 vim.opt.eol = false
+
+vim.keymap.set('n', '<leader>qq', '<cmd>bd<cr>')
