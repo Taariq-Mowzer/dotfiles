@@ -101,3 +101,9 @@ vim.opt.fixeol = false
 vim.opt.eol = false
 
 vim.keymap.set('n', '<leader>qq', '<cmd>bd<cr>')
+
+-- Send delete into black hole register
+vim.keymap.set({'n', 'v'}, 'd', '"_d', { noremap = true })
+vim.keymap.set({'n', 'v'}, 'x', '"_x', { noremap = true })
+vim.keymap.set({'n', 'v'}, 'c', '"_c', { noremap = true })
+vim.keymap.set({'n', 'v'}, 's', '"_s', { noremap = true })
