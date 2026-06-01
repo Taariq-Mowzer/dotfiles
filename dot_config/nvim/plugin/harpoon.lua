@@ -1,7 +1,10 @@
 local harpoon = require("harpoon")
+local review = require("taariq.review")
 
 -- REQUIRED
-harpoon:setup()
+harpoon:setup({
+    review = review.list_config(),
+})
 -- REQUIRED
 -- basic telescope configuration
 local conf = require("telescope.config").values
@@ -25,6 +28,7 @@ vim.keymap.set("n", "<leader>at", function() toggle_telescope(harpoon:list()) en
     { desc = "Open harpoon window" })
 vim.keymap.set("n", "<leader>aa", function() harpoon:list():add() end)
 vim.keymap.set("n", "<leader>al", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set("n", "<leader>ad", review.open_menu, { desc = "Open review list" })
 
 vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
 vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
