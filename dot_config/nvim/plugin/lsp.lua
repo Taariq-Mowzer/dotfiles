@@ -59,6 +59,14 @@ vim.lsp.config('zig', {
 
 vim.lsp.enable('zig')
 
+-- bash
+vim.lsp.config('bashls', {
+  cmd = { 'bash-language-server', 'start' },
+  filetypes = { 'sh', 'bash', 'zsh' },
+  root_markers = { '.git' }, -- optional but recommended
+})
+
+vim.lsp.enable('bashls')
 
 -- Diagnostic should have rounded borders
 vim.o.winborder = 'rounded'
