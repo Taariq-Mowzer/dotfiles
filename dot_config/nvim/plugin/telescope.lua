@@ -12,7 +12,7 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 buffer_searcher = function()
     builtin.buffers {
         sort_mru = true,
-        ignore_current_buffer = true,
+        ignore_current_buffer = false,
         show_all_buffers = false,
         attach_mappings = function(prompt_bufnr, map)
             local refresh_buffer_searcher = function()
