@@ -28,6 +28,7 @@ vim.opt.grepprg = "git grep -n"
 
 -- Don't change the working directory
 vim.opt.autochdir = false
+vim.opt.viewoptions:remove("curdir")
 
 vim.api.nvim_create_user_command("Grep", function(opts)
   vim.cmd("Ggrep -q " .. opts.args)
