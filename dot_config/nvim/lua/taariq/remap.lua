@@ -26,6 +26,9 @@ vim.opt.smartindent = true
 -- Use git grep instead of normal grep
 vim.opt.grepprg = "git grep -n"
 
+-- manual folding
+vim.opt.foldmethod = "manual"
+
 -- Don't change the working directory
 vim.opt.autochdir = false
 vim.opt.viewoptions:remove("curdir")

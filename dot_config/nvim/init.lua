@@ -1,5 +1,6 @@
 require("taariq.packages")
 require("taariq.remap")
+require("taariq.fold")
 require("taariq.theme")
 
 require('luasnip.loaders.from_lua').load({paths = './lua/taariq/snippets/'})
