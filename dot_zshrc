@@ -20,7 +20,7 @@ export LS_COLORS="$(<"$cache")"
 # make ls use colors
 export CLICOLOR=1 
 # Use lsd instead to properlty render colors
-alias ls="lsd --icon never"
+alias ls="lsd --icon never --group-dirs first"
 alias lg="lazygit"
 
 export LANG=C.UTF-8
