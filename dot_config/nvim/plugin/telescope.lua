@@ -8,6 +8,7 @@ local make_entry = require('telescope.make_entry')
 local conf = require("telescope.config").values
 
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>gg', builtin.live_grep, {})
 
 buffer_searcher = function()
     builtin.buffers {
@@ -115,4 +116,4 @@ local function local_marks()
     :find()
 end
 
-vim.keymap.set('n', '<leader>lm', local_marks, { desc = "Telescope: local marks" })
+vim.keymap.set('n', '<leader>m', local_marks, { desc = "Telescope: local marks" })
