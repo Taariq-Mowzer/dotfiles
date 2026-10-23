@@ -16,12 +16,28 @@ if [[ ! -f $cache || $cache -ot ~/.zshrc ]]; then
   mkdir -p "${cache:h}"
   vivid generate tokyonight-night >| "$cache"
 fi
-export LS_COLORS="$(<"$cache")"
+LS_COLORS="$(<"$cache")"
+export LS_COLORS
 # make ls use colors
 export CLICOLOR=1 
 # Use lsd instead to properlty render colors
 alias ls="lsd --icon never --group-dirs first"
 alias lg="lazygit"
+
+alias toucht="touch -t 199901011200"
+
+tss() {
+  local name="$1"
+  [ -z "$name" ] && return 1
+
+  if [ -n "$TMUX" ]; then
+    tmux has-session -t "$name" 2>/dev/null \
+      && tmux switch-client -t "$name" \
+      || tmux new-session -ds "$name" \; switch-client -t "$name"
+  else
+    tmux new-session -As "$name"
+  fi
+}
 
 export LANG=C.UTF-8
 export LC_ALL=C.UTF-8
@@ -42,17 +58,13 @@ function yy() {
 	fi
 	rm -f -- "$tmp"
 }
-# source ~/powerlevel10k/powerlevel10k.zsh-theme
-#
-# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-#
-# Configure pyenv
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
-
-# Configure pyenv virtualenv
-# eval "$(pyenv virtualenv-init -)"
+#Lazy-load pyenv
+pyenv() {
+  unset -f pyenv
+  eval "$(command pyenv init -)"
+  eval "$(command pyenv virtualenv-init -)"
+  pyenv "$@"
+}
 
 GPG_TTY=$(tty)
 export GPG_TTY
@@ -60,3 +72,16 @@ autoload -Uz compinit
 # Use cache + skip security scan (safe if you trust your fpath)
 compinit -C
 export PATH="$HOME/.local/bin:$PATH"
+export AWS_PROFILE="Taariq-aws"
+
+eval "$(uv generate-shell-completion zsh)"
+eval "$(starship init zsh)"
+export TERM=xterm-256color
+
+SSH_AUTH_SOCK="$(ssh -G github.com 2>/dev/null | sed -n 's/^identityagent //p' |  head -n1)"
+export SSH_AUTH_SOCK
+
+
+wd() {
+  . /Users/taariq/bin/wd/wd.sh
+}
