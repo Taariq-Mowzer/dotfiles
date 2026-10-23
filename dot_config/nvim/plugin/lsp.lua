@@ -3,6 +3,9 @@ require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = {'lua_ls', 'basedpyright'},
 	automatic_enable = false,
+	root_dir = function(filename, bufnr)
+    	return vim.fn.getcwd() -- Always returns Neovim's current working directory
+  end
 })
 
 -- LSP maps
@@ -30,7 +33,7 @@ vim.lsp.config('bpyright', {
 	settings = {
 		basedpyright = {
 			analysis = {
-				typeCheckingMode = "basic",
+				typeCheckingMode = "recommended",
 				autoImportCompletions= false,
 				--reportUnknownMemberType = "none",
 			},
@@ -68,6 +71,23 @@ vim.lsp.config('bashls', {
 
 vim.lsp.enable('bashls')
 
+-- terraform
+vim.lsp.config('terraformls', {
+  cmd = { 'terraform-ls', 'serve' },
+
+  filetypes = {
+    'terraform',
+    'terraform-vars',
+    'hcl',
+  },
+
+  root_markers = {
+    '.terraform',
+    '.git',
+  },
+})
+vim.lsp.enable('terraformls')
+
 -- Diagnostic should have rounded borders
 vim.o.winborder = 'rounded'
 
@@ -85,13 +105,16 @@ vim.diagnostic.config({
 	    --[vim.diagnostic.severity.ERROR] = 'ErrorMsg',
 	},
 	numhl = {
-	    [vim.diagnostic.severity.ERROR] = 'DiagnosticError',
-	    [vim.diagnostic.severity.WARN] = 'DiagnosticWarning',
-	    [vim.diagnostic.severity.HINT] = 'DiagnosticHint',
-	    [vim.diagnostic.severity.INFO] = 'DiagnosticInfo',
+	    [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+	    [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+	    [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+	    [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
 	},
     },
 })
+
+-- Keep hint coloring in the number column without underlining buffer text.
+vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', { undercurl = false, underline = false })
 
 -- Autocomplete maps
 vim.api.nvim_set_keymap(
